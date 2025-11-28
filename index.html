@@ -1,59 +1,44 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
-<head>
-  <meta charset="UTF-8" />
-  <title>測試 3D 模型顯示</title>
-  <style> body { margin: 0; overflow: hidden; background: #000; } canvas { display: block; } </style>
-</head>
-<body>
-  <script src="https://cdn.jsdelivr.net/npm/three@0.158/build/three.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/three@0.158/examples/js/controls/OrbitControls.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/three@0.158/examples/js/loaders/GLTFLoader.js"></script>
-  <script>
-    const scene = new THREE.Scene();
-    scene.background = new THREE.Color(0x000000);
+  <head>
+    <meta charset="UTF-8" />
+    <title>3D Cyclopropane 模型展示</title>
 
-    const camera = new THREE.PerspectiveCamera(60, window.innerWidth/window.innerHeight, 0.1, 1000);
-    camera.position.set(2, 2, 2);
+    <!-- model-viewer 套件 -->
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 
-    const renderer = new THREE.WebGLRenderer({antialias: true});
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    document.body.appendChild(renderer.domElement);
-
-    const ambient = new THREE.AmbientLight(0xffffff, 1);
-    scene.add(ambient);
-
-    const light = new THREE.DirectionalLight(0xffffff, 1);
-    light.position.set(3, 3, 3);
-    scene.add(light);
-
-    const controls = new THREE.OrbitControls(camera, renderer.domElement);
-
-    const loader = new THREE.GLTFLoader();
-    loader.load(
-      "https://raw.githubusercontent.com/yuhao0608dOUOb/chemical_3D/main/C01_cyclopropane.glb",
-      function(gltf) {
-        scene.add(gltf.scene);
-      },
-      undefined,
-      function(error) {
-        console.error('載入錯誤:', error);
-        alert('模型載入失敗');
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #f0f0f0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
       }
-    );
 
-    function animate() {
-      requestAnimationFrame(animate);
-      controls.update();
-      renderer.render(scene, camera);
-    }
-    animate();
+      model-viewer {
+        width: 90vw;
+        height: 90vh;
+        background-color: #000000;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+      }
+    </style>
+  </head>
 
-    window.addEventListener('resize', () => {
-      camera.aspect = window.innerWidth/window.innerHeight;
-      camera.updateProjectionMatrix();
-      renderer.setSize(window.innerWidth, window.innerHeight);
-    });
-  </script>
-</body>
+  <body>
+    <model-viewer
+      src="https://raw.githubusercontent.com/yuhao0608dOUOb/chemical_3D/main/C01_cyclopropane.glb"
+      alt="Cyclopropane 3D 分子模型"
+      camera-controls
+      shadow-intensity="1"
+      exposure="1"
+      environment-image="neutral"
+      ar
+      ar-modes="webxr scene-viewer quick-look"
+    >
+    </model-viewer>
+  </body>
 </html>
