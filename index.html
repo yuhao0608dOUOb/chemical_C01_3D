@@ -1,60 +1,44 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
-<head>
-  <meta charset="UTF-8">
-  <title>3D Cyclopropane 模型展示</title>
+  <head>
+    <meta charset="UTF-8" />
+    <title>3D Cyclopropane 模型展示</title>
 
-  <!-- model-viewer 套件 -->
-  <script type="module" src="https://unpkg.com/@google/model-viewer@1.24.0/dist/model-viewer.min.js"></script>
+    <!-- model-viewer 套件 -->
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background-color: #000000;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #f0f0f0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
 
-    model-viewer {
-      width: 90vw;
-      height: 90vh;
-      background-color: #000000;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-    }
+      model-viewer {
+        width: 90vw;
+        height: 90vh;
+        background-color: #ffffff;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+      }
+    </style>
+  </head>
 
-    .tip {
-      position: absolute;
-      bottom: 16px;
-      left: 50%;
-      transform: translateX(-50%);
-      color: white;
-      font-family: sans-serif;
-      font-size: 14px;
-      opacity: 0.7;
-    }
-  </style>
-</head>
-
-<body>
-  <model-viewer
-    src="https://raw.githubusercontent.com/yuhao0608dOUOb/chemical_3D/main/C01_cyclopropane.glb"
-    alt="Cyclopropane 3D 分子模型"
-    camera-controls
-    shadow-intensity="1"
-    exposure="1.2"
-    environment-image="https://modelviewer.dev/shared-assets/environments/neutral.hdr"
-    auto-rotate
-    ar
-    ar-modes="webxr scene-viewer quick-look"
-    camera-orbit="0deg 75deg 2.5m"
-  >
-    <div class="tip">拖曳旋轉模型，使用滑鼠滾輪縮放</div>
-  </model-viewer>
-</body>
+  <body>
+    <model-viewer
+      src="https://raw.githubusercontent.com/yuhao0608dOUOb/chemical_3D/main/C01_cyclopropane.glb"
+      alt="Cyclopropane 3D 分子模型"
+      camera-controls
+      shadow-intensity="1"
+      exposure="1"
+      environment-image="neutral"
+      ar
+      ar-modes="webxr scene-viewer quick-look"
+    >
+    </model-viewer>
+  </body>
 </html>
-
-
