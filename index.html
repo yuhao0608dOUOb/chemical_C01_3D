@@ -11,7 +11,7 @@
       body {
         margin: 0;
         padding: 0;
-        background-color: #f0f0f0;
+        background-color: #000000; /* 黑色背景 */
         display: flex;
         justify-content: center;
         align-items: center;
@@ -21,8 +21,8 @@
       model-viewer {
         width: 90vw;
         height: 90vh;
-        background-color: #ffffff;
-        border: 1px solid #ccc;
+        background-color: #000000; /* model-viewer 背景改黑色 */
+        border: 1px solid #333;
         border-radius: 8px;
       }
     </style>
@@ -36,7 +36,6 @@
       shadow-intensity="1"
       exposure="1.5"
       environment-image="https://modelviewer.dev/shared-assets/environments/neutral.hdr"
-      auto-rotate
       ar
       ar-modes="webxr scene-viewer quick-look"
     >
